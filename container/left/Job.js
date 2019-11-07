@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import "../../index.css"
 import Pagination from './Pagination'
 import {Link} from "react-router-dom"
-export default class Share extends Component {
+export default class Job extends Component {
     constructor(){
         super();
         this.state={
@@ -12,7 +12,7 @@ export default class Share extends Component {
     componentDidMount(){
         console.log(this.props);
         let page=this.props.match.params.id
-        fetch('https://cnodejs.org/api/v1/topics?tab=share&&page='+page)
+        fetch('https://cnodejs.org/api/v1/topics?tab=job&&page='+page)
         .then((res)=>res.json())
         .then((res)=>{
             console.log(res)
@@ -25,7 +25,7 @@ export default class Share extends Component {
         console.log(prevProps.match.params.id)
         if(prevProps.match.params.id!==this.props.match.params.id){
             let page = this.props.match.params.id;
-            fetch('https://cnodejs.org/api/v1/topics?tab=share&&page='+page)
+            fetch('https://cnodejs.org/api/v1/topics?tab=job&&page='+page)
                 .then((res)=>res.json())
                 .then((res)=>{
                     console.log(res)
@@ -54,7 +54,7 @@ export default class Share extends Component {
                         <span>3 天前</span>
                     </a>
                     <span className="put_share">
-                                分享
+                                招聘
                     </span>
                     <Link className="topic_title" to={`/home/infor/`+item.id}  >
                     {item.title}
@@ -62,7 +62,7 @@ export default class Share extends Component {
                 </div>
             ))
         }
-        <Pagination path="/home/share/" />
+        <Pagination path="/home/job/" />
         </div>
         )
 }
